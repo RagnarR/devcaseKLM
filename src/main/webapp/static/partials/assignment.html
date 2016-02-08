@@ -1,0 +1,73 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1>Assignment.</h1>
+    </div>
+</div>
+<div class="row" style="font-size: 14px;">
+    <div class="col-sm-12">
+        <h3>Functional requirements</h3>
+        <p>
+            Our mobile applications would like to consume the destination-finder application as a web view. However
+            they would like to avoid multiple calls to a backend and would like to consume a fully <strong>server side</strong>
+            rendered html presentation. This also means that the call to the destination-finder service has to be performed
+            server side as well.
+        </p>
+        <p>
+            Next to duplicating the destination-finder web interface there are some additional requirements. There should
+            be an additional field present where the minimum budget can be set as well. And the results have to be paged.
+            This means that some form of pagination has to be introduced.
+        </p>
+        <p>
+            The results that are being displayed should be <strong>sorted</strong>. The user should be able to select
+            whether the results are sorted by destination (alphabetically) or by price (from lowest to highest).
+        </p>
+        <h3>Technical requirements</h3>
+        <p>
+            Our operations departments demands from us that the destination-finder services endpoint has to be configured
+            in a properties file. Add a properties and set a property key <strong>service.df.endpoint</strong> with the
+            value of the service url.
+        </p>
+        <p>
+            For a monitoring tool you are required to count the number of visitors and expose this information as
+            a restful resource.
+            <ul>
+                <li>Introduce an endpoint to retrieve this information from (you may define the url yourself)</li>
+                <li>Return a JSON response to consumers visiting the endpoint, you may define a model for the result
+                yourself however the minimum amount of information that must be in the result is version of the application,
+                number of consumer invocations and average request processing time.</li>
+            </ul>
+
+        </p>
+        <h3>Summary</h3>
+        <p>
+            <ul>
+                <li>Render the destination-finder web interface server side.</li>
+                <li>Introduce pagination.</li>
+                <li>Sort results (by either destination or price, user selectable)</li>
+                <li>The destination-finder endpoint must be configurable.</li>
+                <li>Introduce a new endpoint that exposes a JSON view of application version, number of consumer invocations and average request processing time.</li>
+                <li>The implementation must be done using spring, spring-webmvc and any other components that you might need.</li>
+                <li>You are allowed to use internet.</li>
+                <li>Details about the required service can be found <a href="#/service-details">here</a>.</li>
+                <li>Front end code is not the main priority of this assignment, we will be focusing on your backend implementation.</li>
+                <li><strong>Bonus assignment 01</strong>: The destination-finder service unfortunately does not return a description of the origin. Add another call but this time to the airports endpoint to retrieve the description of the airport and add it to your server side rendered result. Again details for this service can be found <a href="#/service-details">here</a>.</li>
+                <li><strong>Bonus assignment 02</strong>: Calling two services sequentially is increasing the time it takes to return the result to the client. Now that we are rendering the page server side we want to limit the processing time to a minimum. Implement the solution in such a way that both the call to retrieve the fares as well as the call to retrieve the origin details is invoked in parallel.</li>
+            </ul>
+        </p>
+        <h3>Conclusion</h3>
+        <p>
+            By no means is the goal to get a solution covering all special cases in a 100% robust way. Requiring this
+            would be naive. At least the functions described shall be error free when used correctly, how everything
+            else is handled is subject to creativity and ambition.
+        </p>
+        <p>
+            We will pay attention to code structure, threading and understanding of the problem, as well as the
+            discussion around design and choice of data structures.
+        </p>
+        <p>
+            <strong>Please note</strong>: This type of exhaustive specification is extremely rare at klm.com and does by no means
+            represent the way we do or want to work. In reality the “specification” is almost always verbal and implicit
+            and it is up to the individual developers or groups to formulate code that best represents the solution.
+        </p>
+    </div>
+</div>

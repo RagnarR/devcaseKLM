@@ -1,0 +1,74 @@
+<div class="row" style="margin-bottom: 40px;">
+    <div class="col-lg-12">
+        <h1>Client side destination-finder implementation.</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-offset-2 col-lg-8">
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label for="origin" class="col-sm-3 control-label">Origin</label>
+
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="origin" placeholder="Enter your origin code i.e. AMS."
+                           ng-model="request.origin" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="pos" class="col-sm-3 control-label">POS</label>
+
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="pos"
+                           placeholder="Enter your point of sale code i.e. NL."
+                           ng-model="request.pos" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="maxBudget" class="col-sm-3 control-label">Max. Budget</label>
+
+                <div class="col-sm-9">
+                    <input type="number" class="form-control" id="maxBudget" placeholder="Provide a maximum budget."
+                           ng-model="request.maxBudget" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-9">
+                    <button type="submit" class="btn btn-default"
+                            ng-click="findDestinations(request.origin, request.pos, request.maxBudget)">Find
+                        Destinations
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-offset-2 col-lg-8">
+        <div class="col-sm-offset-3 col-sm-9" ng-show="loading">
+            <small><span class="text-primary">Please hold... fetching resources</span></small>
+        </div>
+        <div class="col-sm-offset-3 col-sm-9" ng-show="error">
+            <small><span class="text-danger">{{error}}</span></small>
+        </div>
+    </div>
+</div>
+
+<div class="row" ng-show="response">
+    <div class="col-lg-offset-2 col-lg-8">
+        <div class="col-sm-offset-3 col-sm-9">
+            <table class="table table-condensed">
+                <thead>
+                <th>destination</th>
+                <th>fare</th>
+                </thead>
+                <tbody>
+                <tr ng-repeat="destination in response.destinations">
+                    <td>{{destination.destination.description}}</td>
+                    <td>{{destination.lowestFare.currency}} {{destination.lowestFare.value}},-</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

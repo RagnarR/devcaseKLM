@@ -1,0 +1,161 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1>Destination Finder <small><span class="text-muted">service details</span></small>.</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <h2>Airport Details Resource definition</h2>
+        <ul>
+            <li>URI: http://www.klm.com/destinations/destination-finder/airports/{airport-code}</li>
+        </ul>
+        <h5>Sample response</h5>
+        <p>The response below provides a sample of a possible result. Please note that there are two types of responses
+            that can be requested. Either a JSONP response or a JSON response can be requested by simply provided the appropriate
+            HTTP header.
+        <ul>
+            <li>Accept:application/json</li>
+            <li>Accept:application/javascript</li>
+        </ul>
+        </p>
+        <pre>
+{
+    "type": "AIRPORT",
+    "code": "AMS",
+    "coordinates": {
+        "lat": 52.30833,
+        "lon": 4.76806
+    },
+    "parent": {
+        "type": "CITY",
+        "code": "AMS",
+        "coordinates": {
+            "lat": 52.31667,
+            "lon": 4.78417
+        },
+        "parent": {
+            "type": "COUNTRY",
+            "code": "NL",
+            "coordinates": {
+                "lat": 52.3,
+                "lon": 5.45
+            },
+            "parent": {
+                "type": "CONTINENT",
+                "code": "EUR",
+                "coordinates": {
+                    "lat": 51.179,
+                    "lon": 11.25
+                },
+                "name": "Europe",
+                "description": "Europe (EUR)"
+            },
+            "name": "Netherlands",
+            "description": "Netherlands (NL)"
+        },
+        "name": "Amsterdam",
+        "description": "Amsterdam (AMS)"
+    },
+    "name": "Schiphol",
+    "description": "Amsterdam - Schiphol (AMS), Netherlands"
+}
+        </pre>
+        <h2>Destination Finder Resource definition</h2>
+        <ul>
+            <li>Base URI: http://www.klm.com/destinations/destination-finder/</li>
+            <li>Query parameters: origin, pos, maxBudget, minBudget</li>
+        </ul>
+        <h5>Query parameter description</h5>
+        <ul>
+            <li>Origin: The 3 letter origin airport IATA code, i.e. AMS</li>
+            <li>POS: Point of sale, i.e. NL</li>
+            <li>maxBudget: The maximum budget allowed for the fare.</li>
+            <li>minBudget: The minimum budget allowed for the fare.</li>
+        </ul>
+        <h5>Sample response</h5>
+        <p>The response below provides a sample of a possible result. Please note that there are two types of responses
+        that can be requested. Either a JSONP response or a JSON response can be requested by simply provided the appropriate
+        HTTP header.
+        <ul>
+            <li>Accept:application/json</li>
+            <li>Accept:application/javascript</li>
+        </ul>
+        </p>
+        <pre>
+{"destinations":[
+    {
+        "origin":"BCN",
+        "destination":{
+            "code":"AMS",
+            "name":"Amsterdam",
+            "description":"Amsterdam (AMS)",
+            "country":"NL",
+            "continent":"EUR",
+            "coordinates":{
+                "lat":52.31667,
+                "lon":4.78417
+            }
+        },
+        "lowestFare":{
+            "value":99.0,
+            "currency":"EUR"
+        }
+    },
+    {
+        "origin":"BCN",
+        "destination":{
+            "code":"MIL",
+            "name":"Milan",
+            "description":"Milan (MIL)",
+            "country":"IT",
+            "continent":"EUR",
+            "coordinates":{
+                "lat":45.46417,
+                "lon":9.20167
+            }
+        },
+        "lowestFare":{
+            "value":99.0,
+            "currency":"EUR"
+        }
+    },
+    {
+        "origin":"BCN",
+        "destination":{
+            "code":"LYS",
+            "name":"Lyon",
+            "description":"Lyon (LYS)",
+            "country":"FR",
+            "continent":"EUR",
+            "coordinates":{
+                "lat":45.71611,
+                "lon":5.08194
+            }
+        },
+        "lowestFare":{
+            "value":120.0,
+            "currency":"EUR"
+        }
+    },
+    {
+        "origin":"BCN",
+        "destination":{
+            "code":"PAR",
+            "name":"Paris",
+            "description":"Paris (PAR)",
+            "country":"FR",
+            "continent":"EUR",
+            "coordinates":{
+                "lat":48.85028,
+                "lon":2.40639
+            }
+        },
+        "lowestFare":{
+            "value":109.0,
+            "currency":"EUR"
+        }
+    }
+]}
+        </pre>
+    </div>
+</div>
